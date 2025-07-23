@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import LoginPage from "./LoginPage";
+import LoginForm from "./auth/LoginForm";
+import SignupForm from "./auth/SignupForm";
+
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +23,7 @@ export default function Navigation() {
         <div className="mx-auto max-w-7xl">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-white lg:text-3xl tracking-tight">
-              AudioCraft
+              <Link to={"/"}>AudioCraft</Link>
             </h1>
 
             {/* Desktop Nav */}
@@ -35,12 +37,13 @@ export default function Navigation() {
                   {item.label}
                 </Link>
               ))}
-              <button
+              <Link
+                to={"/login"}
                 onClick={() => setShowLogin(true)}
                 className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium rounded-full transition-all duration-200"
               >
                 Login
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -68,7 +71,8 @@ export default function Navigation() {
                     {item.label}
                   </Link>
                 ))}
-                <button
+                <Link
+                  to={"/login"}
                   onClick={() => {
                     setIsMenuOpen(false);
                     setShowLogin(true);
@@ -76,7 +80,7 @@ export default function Navigation() {
                   className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium rounded-full transition-all duration-200"
                 >
                   Login
-                </button>
+                </Link>
               </div>
             </div>
           )}
@@ -84,20 +88,6 @@ export default function Navigation() {
       </nav>
 
       {/* Login Popup Modal with imported component */}
-      {showLogin && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-          <div className="relative w-full max-w-md rounded-2xl p-0 shadow-lg bg-white">
-            {/* Cut/Close button */}
-            <button
-              onClick={() => setShowLogin(false)}
-              className="absolute top-50 right-1 text-red-600 hover:text-amber-200"
-            >
-              <X size={40} />
-            </button>
-            <LoginPage />
-          </div>
-        </div>
-      )}
     </>
   );
 }
