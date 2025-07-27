@@ -26,6 +26,7 @@ const UploadModal = ({ onClose, onUploadComplete }) => {
       handleFileUpload(files[0]);
     }
   };
+  
 
   const handleFileUpload = (file) => {
     const projectData = {
@@ -47,13 +48,15 @@ const UploadModal = ({ onClose, onUploadComplete }) => {
         id: Date.now(),
         title: `YouTube Video ${videoId}`,
         type: "youtube",
-        duration: "01:51",
+        // duration: "01:51",
         uploadedAt: new Date().toISOString(),
         url: youtubeUrl,
       };
       onUploadComplete(projectData);
     }
   };
+
+  
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
@@ -133,6 +136,7 @@ const UploadModal = ({ onClose, onUploadComplete }) => {
                 Supports MP4, AVI, MOV, WMV
               </p>
             </div>
+            
             <input
               ref={fileInputRef}
               type="file"
@@ -155,7 +159,7 @@ const UploadModal = ({ onClose, onUploadComplete }) => {
                 type="url"
                 value={youtubeUrl}
                 onChange={(e) => setYoutubeUrl(e.target.value)}
-                placeholder="https://www.youtube.com/watch?v=..."
+                placeholder="https://www.youtube.com/...."
                 className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
               />
             </div>
