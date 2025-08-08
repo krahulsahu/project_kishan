@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-const UploadModal = ({ onClose, onUploadComplete }) => {
+const UploadModalVideo = ({ onClose, onUploadComplete }) => {
   const [activeTab, setActiveTab] = useState("upload");
   const [youtubeUrl, setYoutubeUrl] = useState("");
   const [dragActive, setDragActive] = useState(false);
@@ -177,4 +177,4 @@ const UploadModal = ({ onClose, onUploadComplete }) => {
   );
 };
 
-export default UploadModal;
+export default UploadModalVideo;

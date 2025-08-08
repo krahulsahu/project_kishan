@@ -1,11 +1,9 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
-import TopBar from "./TopBar";
-import LeftPanel from "./LeftPanel";
-import CenterPanel from "./CenterPanel";
-import BottomTimeline from "./BottomTimeline";
-import RightToolbar from "./RightToolbar";
+import TopBar from "../../TopBar";
+import LeftPanel from "../../LeftPanel";
+import CenterPanel from "../../CenterPanel";
+import BottomTimeline from "../../BottomTimeline";
+import RightToolbar from "../../RightToolbar";
 import DownloadAudioButton from "./DownloadAudioButton";
 
 const EditorDashboard = ({ project, onBack }) => {
@@ -45,7 +43,6 @@ const EditorDashboard = ({ project, onBack }) => {
             cropStart={cropStart}
             cropEnd={cropEnd}
           />
-          
 
           <BottomTimeline
             duration={111}

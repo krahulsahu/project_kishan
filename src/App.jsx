@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import Footers from "./components/Footers";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -11,7 +10,7 @@ import LoginForm from "./components/auth/LoginForm";
 import SignupForm from "./components/auth/SignupForm";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
-import BottemFooter from "./components/BottemFooter";
+import BottemFooter from "./components/ui/BottemFooter";
 
 function App() {
   return (

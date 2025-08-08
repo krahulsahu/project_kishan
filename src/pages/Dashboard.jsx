@@ -6,10 +6,10 @@ import CloneVoice from "../audio_ai/CloneVoice";
 import GenerateMusic from "../audio_ai/GenerateMusic";
 import GenerateSpeech from "../audio_ai/GenerateSpeech";
 import VideoStudio from "../audio_ai/VideoStudio";
-import Transcribe from "../audio_ai/Transcribe";
-import Convert from "../audio_ai/Convert";
-import Split from "../audio_ai/Split";
+import Transcribe from "../components/features/Transcribe/Transcribe";
+import Convert from "../components/features/Convert/Convert";
 import Merge from "../audio_ai/Merge";
+import Split from "../components/features/Split/Split";
 
 export default function Dashboard() {
   const tab = new URLSearchParams(useLocation().search).get("tab");

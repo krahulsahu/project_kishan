@@ -1,8 +1,8 @@
 import { useState } from "react";
-import UploadModal from "../components/UploadModal";
-import EditorDashboard from "../components/EditorDashboard";
+import SplitEditorDashboard from "./SplitEditorDashboard";
+import UploadModalVideo from "../../UploadModalVideo";
 
-export default function VideoToAudioConverter() {
+export default function Split() {
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [currentProject, setCurrentProject] = useState(null);
 
@@ -13,7 +13,7 @@ export default function VideoToAudioConverter() {
 
   if (currentProject) {
     return (
-      <EditorDashboard
+      <SplitEditorDashboard
         project={currentProject}
         onBack={() => setCurrentProject(null)}
       />
@@ -24,29 +24,29 @@ export default function VideoToAudioConverter() {
     <div className="min-h-screen flex flex-col bg-black text-white">
       <div className="container mx-auto px-4 py-8 flex-grow">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4">Video to Audio Converter</h1>
+          <h1 className="text-4xl font-bold mb-4">Split Audio</h1>
           <p className="text-gray-400 mb-8">
-            Convert your videos or YouTube URLs to high-quality audio files
+            Split Vocals & Instrumental Separate vocals and instrumental tracks
+            from your audio
           </p>
         </div>
 
         <div className="flex justify-center">
           <button
             onClick={() => setShowUploadModal(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold"
           >
-            Upload Video
+            Upload File
           </button>
         </div>
 
         {showUploadModal && (
-          <UploadModal
+          <UploadModalVideo
             onClose={() => setShowUploadModal(false)}
             onUploadComplete={handleUploadComplete}
           />
         )}
       </div>
-
     </div>
   );
 }

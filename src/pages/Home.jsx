@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "../components/Hero";
-import ServicesSection from "../components/ServicesSection";
-import OurServices from "../components/OurServices";
-import Footers from "../components/Footers";
+import Hero from "../components/ui/Hero";
+import ServicesSection from "../components/ui/ServicesSection";
+import OurServices from "../components/ui/OurServices";
+import Footers from "../components/ui/Footers";
 
 const Home = () => {
   return (
