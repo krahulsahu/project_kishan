@@ -130,9 +130,9 @@ export default function MergeAudio() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 space-y-6 text-white">
-      <h1 className="text-3xl font-bold">Merge Audio (Pro)</h1>
-      <p className="text-gray-400">
+    <div className="max-w-5xl pt-[100px] mx-auto p-6 space-y-6 text-white">
+      <h1 className="text-4xl font-bold text-center">Merge Audio (Pro)</h1>
+      <p className="text-gray-400 text-center">
         Upload, preview, reorder, trim, and merge audio files.
       </p>
 
@@ -140,7 +140,7 @@ export default function MergeAudio() {
       <div
         onDrop={handleDropUpload}
         onDragOver={(e) => e.preventDefault()}
-        className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-purple-500 transition-colors cursor-pointer"
+        className="border-2 border-dashed border-gray-600 rounded-lg p-10 text-center hover:border-purple-500 transition-colors cursor-pointer"
         onClick={() => document.getElementById("fileInput").click()}
       >
         <Upload className="mx-auto mb-3 text-purple-400" size={36} />

@@ -2,7 +2,7 @@ import CloneVoiceUploader from "./CloneVoiceUploader";
 
 export default function CloneVoicePage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen pt-[80px] bg-black">
       <div className="px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
           {/* Heading */}

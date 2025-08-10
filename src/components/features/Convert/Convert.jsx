@@ -21,7 +21,7 @@ export default function VideoToAudioConverter() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+    <div className="min-h-screen pt-[100px] flex flex-col bg-black text-white">
       <div className="container mx-auto px-4 py-8 flex-grow">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4">Video to Audio Converter</h1>

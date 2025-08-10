@@ -10,11 +10,13 @@ import SignupForm from "./components/auth/SignupForm";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import BottemFooter from "./components/ui/BottemFooter";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Navigation />
       <main className="flex-1">
         <Routes>

@@ -24,7 +24,17 @@ export default function Navigation() {
     { label: "Split Audio", tab: "split" },
     { label: "Merge Audio", tab: "merge" },
   ];
-
+  /*
+    if (tab === "generate-music") return <GenerateMusic />;
+    if (tab === "generate-speech") return <TextToSpeechPage />;
+    if (tab === "video-studio") return <VideoStudio />;
+    if (tab === "transcribe") return <TranscribeAudio />;
+    if (tab === "clone-voice") return <CloneVoicePage />;
+    if (tab === "convert") return <Convert />;
+    if (tab === "split") return <SplitAudioPage />;
+    if (tab === "merge") return <MergeAudio />;
+    
+*/
   const handleLabEnter = () => {
     clearTimeout(labTimeoutRef.current);
     setLabOpen(true);
@@ -37,7 +47,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="relative z-50 px-4 py-6 lg:px-8 bg-black/80 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 px-4 py-6 lg:px-8 bg-black/80 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-between">
           {/* Logo */}

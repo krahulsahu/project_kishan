@@ -59,14 +59,14 @@ export default function SplitAudio() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-gray-900 rounded-xl shadow-lg border border-gray-800 p-6">
+    <div className="bg-gray-900 rounded-3xl p-8 shadow-lg border border-gray-800 space-y-6">
       {/* Title */}
       <h2 className="text-white text-lg font-bold mb-4">Upload Content</h2>
 
       {/* Tabs */}
-      <div className="flex mb-4">
+      <div className="flex mb-4  ">
         <button
-          className={`flex-1 px-4 py-2 rounded-l-lg text-sm font-medium ${
+          className={`flex-1  px-2 py-2 rounded-l-lg text-sm font-medium ${
             activeTab === "file"
               ? "bg-blue-600 text-white"
               : "bg-gray-800 text-gray-300"
@@ -76,7 +76,7 @@ export default function SplitAudio() {
           Upload File
         </button>
         <button
-          className={`flex-1 px-4 py-2 rounded-r-lg text-sm font-medium ${
+          className={`flex-1 px-2 py-2 rounded-r-lg text-sm font-medium ${
             activeTab === "youtube"
               ? "bg-blue-600 text-white"
               : "bg-gray-800 text-gray-300"

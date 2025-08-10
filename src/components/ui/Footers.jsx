@@ -133,15 +133,15 @@ export default function Footers() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-gray-400">
                 <Mail className="h-4 w-4" />
-                <span>hello@audiocraftstudio.com</span>
+                <span>...............................................</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>.....................................</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <MapPin className="h-4 w-4" />
-                <span>San Francisco, CA</span>
+                <span>...............................</span>
               </div>
             </div>
 

@@ -102,7 +102,7 @@ export default function TranscribeAudio() {
   };
 
   return (
-    <div className="max-w-4xl text-center mx-auto p-6 space-y-6 text-white">
+    <div className="max-w-4xl pt-[90px] text-center mx-auto p-6 space-y-6 text-white">
       <h1 className="text-3xl font-bold">Transcribe Audio</h1>
       <p className="text-gray-400">
         Upload or record audio to convert speech into editable text.
