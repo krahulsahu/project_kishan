@@ -8,11 +8,9 @@ import GenerateSpeech from "../audio_ai/GenerateSpeech";
 import VideoStudio from "../audio_ai/VideoStudio";
 import Transcribe from "../components/features/Transcribe/Transcribe";
 import Convert from "../components/features/Convert/Convert";
-import Merge from "../audio_ai/Merge";
 import Split from "../components/features/Split/Split";
-import BottomTimeline from "../components/features/MergeAudio/BottomTimeline";
 import TextToSpeechPage from "./TextToSpeechPage";
-// import BottomTimeline from "../components/BottomTimeline";
+import MergeAudio from "../components/features/MergeAudio/MergeAudio";
 
 export default function Dashboard() {
   const tab = new URLSearchParams(useLocation().search).get("tab");
@@ -25,7 +23,8 @@ export default function Dashboard() {
   if (tab === "clone-voice") return <CloneVoice />;
   if (tab === "convert") return <Convert />;
   if (tab === "split") return <Split />;
-  if (tab === "merge") return <BottomTimeline />;
+if (tab === "merge") return <MergeAudio />;
+
 
   return <div className="text-white p-4">No tab selected</div>;
 }

@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import BottemFooter from "./components/ui/BottemFooter";
 
+
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -20,7 +21,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/testimonial" element={<TextToSpeechPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<LoginForm />} />
