@@ -1,4 +1,4 @@
-import TextToSpeechConverter from "../components/TextToSpeechConverter";
+import TextToSpeechConverter from "./TextToSpeechConverter";
 
 export default function TextToSpeechPage() {
   return (
@@ -14,7 +14,7 @@ export default function TextToSpeechPage() {
               voice synthesis
             </p>
           </div>
-          <TextToSpeechConverter />
+          <TextToSpeechConverter/>
         </div>
       </div>
     </div>

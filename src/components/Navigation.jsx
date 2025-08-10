@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -25,16 +25,16 @@ export default function Navigation() {
     { label: "Merge Audio", tab: "merge" },
   ];
 
-  // Close lab menu after 3 seconds of inactivity
-  useEffect(() => {
-    if (labOpen) {
-      clearTimeout(labTimeoutRef.current);
-      labTimeoutRef.current = setTimeout(() => {
-        setLabOpen(false);
-      }, 2000);
-    }
-    return () => clearTimeout(labTimeoutRef.current);
-  }, [labOpen]);
+  const handleLabEnter = () => {
+    clearTimeout(labTimeoutRef.current);
+    setLabOpen(true);
+  };
+
+  const handleLabLeave = () => {
+    labTimeoutRef.current = setTimeout(() => {
+      setLabOpen(false);
+    }, 2000);
+  };
 
   return (
     <nav className="relative z-50 px-4 py-6 lg:px-8 bg-black/80 backdrop-blur-sm">
@@ -58,11 +58,12 @@ export default function Navigation() {
             ))}
 
             {/* AudioCraft Lab Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setLabOpen((prev) => !prev)}
-                className="text-gray-300 hover:text-white font-medium text-lg"
-              >
+            <div
+              className="relative"
+              onMouseEnter={handleLabEnter}
+              onMouseLeave={handleLabLeave}
+            >
+              <button className="text-gray-300 hover:text-white font-medium text-lg">
                 AudioCraft Lab ▾
               </button>
 
@@ -120,29 +121,32 @@ export default function Navigation() {
               ))}
 
               {/* Mobile Dropdown for Lab */}
-              <button
-                onClick={() => setLabOpen((prev) => !prev)}
-                className="text-gray-300 hover:text-white font-medium text-lg"
+              <div
+                onMouseEnter={handleLabEnter}
+                onMouseLeave={handleLabLeave}
+                className="w-full text-center"
               >
-                AudioCraft Lab ▾
-              </button>
-              {labOpen && (
-                <div className="mt-2 w-full">
-                  {labFeatures.map((feature) => (
-                    <button
-                      key={feature.tab}
-                      onClick={() => {
-                        navigate(`/dashboard?tab=${feature.tab}`);
-                        setIsMenuOpen(false);
-                        setLabOpen(false);
-                      }}
-                      className="block w-full text-center px-2 py-1 text-gray-300 hover:bg-purple-600 hover:text-white rounded transition-colors"
-                    >
-                      {feature.label}
-                    </button>
-                  ))}
-                </div>
-              )}
+                <button className="text-gray-300 hover:text-white font-medium text-lg">
+                  AudioCraft Lab ▾
+                </button>
+                {labOpen && (
+                  <div className="mt-2 w-full">
+                    {labFeatures.map((feature) => (
+                      <button
+                        key={feature.tab}
+                        onClick={() => {
+                          navigate(`/dashboard?tab=${feature.tab}`);
+                          setIsMenuOpen(false);
+                          setLabOpen(false);
+                        }}
+                        className="block w-full text-center px-2 py-1 text-gray-300 hover:bg-purple-600 hover:text-white rounded transition-colors"
+                      >
+                        {feature.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <Link
                 to={"/login"}
