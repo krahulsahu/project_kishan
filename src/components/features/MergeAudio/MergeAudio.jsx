@@ -130,134 +130,136 @@ export default function MergeAudio() {
   };
 
   return (
-    <div className="max-w-5xl pt-[100px] mx-auto p-6 space-y-6 text-white">
-      <h1 className="text-4xl font-bold text-center">Merge Audio (Pro)</h1>
-      <p className="text-gray-400 text-center">
-        Upload, preview, reorder, trim, and merge audio files.
-      </p>
-
-      {/* Drag & Drop Upload */}
-      <div
-        onDrop={handleDropUpload}
-        onDragOver={(e) => e.preventDefault()}
-        className="border-2 border-dashed border-gray-600 rounded-lg p-10 text-center hover:border-purple-500 transition-colors cursor-pointer"
-        onClick={() => document.getElementById("fileInput").click()}
-      >
-        <Upload className="mx-auto mb-3 text-purple-400" size={36} />
-        <p className="text-gray-400">
-          Drag & drop audio files here, or click to browse
+    <div className="flex justify-center items-center min-h-[400px]">
+      <div className="max-w-5xl pt-[100px] mx-auto p-6 space-y-6 text-white">
+        <h1 className="text-4xl font-bold text-center">Merge Audio</h1>
+        <p className="text-gray-400 text-center">
+          Upload, preview, reorder, trim, and merge audio files.
         </p>
-        <input
-          id="fileInput"
-          type="file"
-          multiple
-          accept="audio/*"
-          className="hidden"
-          onChange={handleFileUpload}
-        />
-      </div>
 
-      {/* File List with Waveforms */}
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="audio-list">
-          {(provided) => (
-            <div
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-              className="space-y-4"
-            >
-              {files.map((file, idx) => (
-                <Draggable key={idx} draggableId={`file-${idx}`} index={idx}>
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      className="bg-gray-800 p-4 rounded-lg space-y-2"
-                    >
-                      <div className="flex justify-between items-center">
-                        <span>{file.name}</span>
-                        <div className="flex space-x-2">
-                          <button
-                            onClick={() => togglePlay(idx)}
-                            className="text-green-400"
-                          >
-                            {playingIndex === idx ? (
-                              <Pause size={18} />
-                            ) : (
-                              <Play size={18} />
-                            )}
-                          </button>
-                          <button
-                            onClick={() => removeFile(idx)}
-                            className="text-red-400"
-                          >
-                            <Trash2 size={18} />
-                          </button>
+        {/* Drag & Drop Upload */}
+        <div
+          onDrop={handleDropUpload}
+          onDragOver={(e) => e.preventDefault()}
+          className="border-2 border-dashed border-gray-600 rounded-lg p-10 text-center hover:border-purple-500 transition-colors cursor-pointer"
+          onClick={() => document.getElementById("fileInput").click()}
+        >
+          <Upload className="mx-auto mb-3 text-purple-400" size={36} />
+          <p className="text-gray-400">
+            Drag & drop audio files here, or click to browse
+          </p>
+          <input
+            id="fileInput"
+            type="file"
+            multiple
+            accept="audio/*"
+            className="hidden"
+            onChange={handleFileUpload}
+          />
+        </div>
+
+        {/* File List with Waveforms */}
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="audio-list">
+            {(provided) => (
+              <div
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                className="space-y-4"
+              >
+                {files.map((file, idx) => (
+                  <Draggable key={idx} draggableId={`file-${idx}`} index={idx}>
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        className="bg-gray-800 p-4 rounded-lg space-y-2"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span>{file.name}</span>
+                          <div className="flex space-x-2">
+                            <button
+                              onClick={() => togglePlay(idx)}
+                              className="text-green-400"
+                            >
+                              {playingIndex === idx ? (
+                                <Pause size={18} />
+                              ) : (
+                                <Play size={18} />
+                              )}
+                            </button>
+                            <button
+                              onClick={() => removeFile(idx)}
+                              className="text-red-400"
+                            >
+                              <Trash2 size={18} />
+                            </button>
+                          </div>
                         </div>
+                        <div id={`waveform-${idx}`} className="w-full"></div>
                       </div>
-                      <div id={`waveform-${idx}`} className="w-full"></div>
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
 
-      {/* Merge Settings */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <select
-          value={format}
-          onChange={(e) => setFormat(e.target.value)}
-          className="bg-gray-900 text-white p-2 rounded"
-        >
-          <option value="mp3">MP3</option>
-          <option value="wav">WAV</option>
-        </select>
+        {/* Merge Settings */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <select
+            value={format}
+            onChange={(e) => setFormat(e.target.value)}
+            className="bg-gray-900 text-white p-2 rounded"
+          >
+            <option value="mp3">MP3</option>
+            <option value="wav">WAV</option>
+          </select>
 
-        <select
-          value={bitrate}
-          onChange={(e) => setBitrate(e.target.value)}
-          className="bg-gray-900 text-white p-2 rounded"
-        >
-          <option value="320k">320 kbps</option>
-          <option value="192k">192 kbps</option>
-          <option value="128k">128 kbps</option>
-        </select>
+          <select
+            value={bitrate}
+            onChange={(e) => setBitrate(e.target.value)}
+            className="bg-gray-900 text-white p-2 rounded"
+          >
+            <option value="320k">320 kbps</option>
+            <option value="192k">192 kbps</option>
+            <option value="128k">128 kbps</option>
+          </select>
 
-        <select
-          value={gap}
-          onChange={(e) => setGap(e.target.value)}
-          className="bg-gray-900 text-white p-2 rounded"
+          <select
+            value={gap}
+            onChange={(e) => setGap(e.target.value)}
+            className="bg-gray-900 text-white p-2 rounded"
+          >
+            <option value="0">No Gap</option>
+            <option value="1">1 sec Gap</option>
+            <option value="2">2 sec Gap</option>
+          </select>
+        </div>
+
+        {/* Merge Button */}
+        <button
+          onClick={mergeAudio}
+          disabled={isMerging || !files.length}
+          className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold disabled:opacity-50"
         >
-          <option value="0">No Gap</option>
-          <option value="1">1 sec Gap</option>
-          <option value="2">2 sec Gap</option>
-        </select>
+          {isMerging ? "Merging..." : "Merge & Download"}
+        </button>
+
+        {/* Download Link */}
+        {mergedUrl && (
+          <a
+            href={mergedUrl}
+            download={`merged.${format}`}
+            className="block text-center mt-4 text-purple-400 hover:underline"
+          >
+            Download Merged Audio
+          </a>
+        )}
       </div>
-
-      {/* Merge Button */}
-      <button
-        onClick={mergeAudio}
-        disabled={isMerging || !files.length}
-        className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold disabled:opacity-50"
-      >
-        {isMerging ? "Merging..." : "Merge & Download"}
-      </button>
-
-      {/* Download Link */}
-      {mergedUrl && (
-        <a
-          href={mergedUrl}
-          download={`merged.${format}`}
-          className="block text-center mt-4 text-purple-400 hover:underline"
-        >
-          Download Merged Audio
-        </a>
-      )}
     </div>
   );
 }

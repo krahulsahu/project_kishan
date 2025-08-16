@@ -59,9 +59,10 @@ export default function SplitAudio() {
   };
 
   return (
-    <div className="bg-gray-900 rounded-3xl p-8 shadow-lg border border-gray-800 space-y-6">
+<div className="flex items-center justify-center  bg-gray-950">
+<div className="bg-gray-900 rounded-3xl p-8 shadow-lg border border-gray-800 space-y-6 w-1/2 ">
       {/* Title */}
-      <h2 className="text-white text-lg font-bold mb-4">Upload Content</h2>
+      <h2 className="text-white text-lg font-bold mb-4 text-center">Upload Content</h2>
 
       {/* Tabs */}
       <div className="flex mb-4  ">
@@ -192,5 +193,8 @@ export default function SplitAudio() {
         </div>
       )}
     </div>
+
+    </div>
+    
   );
 }

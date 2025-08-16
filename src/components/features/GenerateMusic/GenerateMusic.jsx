@@ -22,11 +22,11 @@ export default function GenerateMusic() {
   };
 
   return (
-    <div className="bg-gray-900 rounded-3xl p-8 shadow-lg border border-gray-800 space-y-6">
+    <div className="bg-gray-900 rounded-3xl p-10 shadow-xl border border-gray-800 space-y-6 ">
       {/* Prompt Input */}
       <textarea
         className="w-full p-4 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 resize-none text-base focus:outline-none focus:border-purple-500"
-        rows={3}
+        rows={5}
         placeholder='e.g. "lofi chill beats with piano and rain sounds"'
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
